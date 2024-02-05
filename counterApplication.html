@@ -1,7 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="counterApplication.css">
+    <link rel="stylesheet" href="counterApplication.css"> 
+    body{
+    padding:0;
+    margin:0; 
+    box-sizing: border-box;
+    background: linear-gradient(to right,)#434675,hsl(110, 18%, 20%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: 100vh;
+    background-color: antiquewhite;
+  }
+  .container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+  }
+  .card{
+    background: linear-gradient(to right,  #0549ade7, #fa019b55);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    
+    width:300px;
+
+
+  }
+  .heading, .counter-Value{
+    color: #fff;
+    margin:0;
+   
+
+
+  }
+  .counter{
+    background-color: #768ae259;
+    border-radius:86px;
+    padding:20px;
+    margin:20px auto;
+    width:100px;
+    height:100px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    font-size: 25px;
+    border:20x solid transparent;
+    transition: border-color 0.10s;
+  } 
+
+.btn-group{
+    display :flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.btn-counter{
+    background: #e6e1e640;
+    border:none;
+    border-radius: 5px;
+    color:#ffff;
+    cursor: pointer;
+    padding:8px 12px;
+    transition: background-color 0.03s;
+
+}
+.btn-counter:hover{
+    background-color: #0056b3;
+}
+.postive{
+    border-color: rgb(28, 0, 128);
+
+}
+.negative{
+    border-color:red;
+}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter Application</title>
@@ -20,6 +95,47 @@
 
         </div>
     </div>
-    <script src = "counterApplication.js"></script>
-</body>
+    <script src = "counterApplication.js"> </script>
+</body>(function(){
+
+    const buttons = document.querySelectorAll(".btn-counter");
+let count = 0;
+
+const counter = document.querySelector(".counter-Value");
+const counterContainer = document.querySelector(".counter"); 
+
+buttons.forEach(function(button){
+
+button.addEventListener('click' , function(){
+    if (button.classList.contains("btn-Decrease")){
+        count--;
+    }
+    else if  (button.classList.contains("btn-Increase")){
+       count++;
+    }
+    else {
+        count = 0;
+    }
+    
+    counter.textContent = count;
+
+    if (count > 0){
+        counterContainer.classList.remove("negative");
+        counterContainer.classList.add("postive");
+    }else if (count < 0){
+        counterContainer.classList.remove("postive");
+        counterContainer.classList.add("negative");
+    }else{
+        counterContainer.classList.remove("postive" , "negative");
+    }
+
+
+
+})
+
+
+})
+
+
+})();
 </html>
